@@ -18,22 +18,34 @@ const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(cookieParser());
-// app.use(
-//   cors({
-//     // origin: "http://localhost:5173",
-//     origin:"*",
-//     credentials: true,
-//   })
-// );
-app.use(cors({
-  origin: (origin, callback) => {
-    callback(null, origin || '*'); // Dynamically allow all origins
-  },
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true, // Allow cookies and authentication headers
-  preflightContinue: false,
-  optionsSuccessStatus: 204
-}));
+app.use(
+  cors({
+    // origin: "http://localhost:5173",
+    origin:"https://chat-app-three-pink.vercel.app",
+    credentials: true,
+  })
+);
+// app.use(cors());
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     callback(null, origin || '*'); // Dynamically allow all origins
+//   },
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   credentials: true, // Allow cookies and authentication headers
+//   preflightContinue: false,
+//   optionsSuccessStatus: 204
+// }));
+// app.use((req,res,next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept, Set-Cookie"
+//   );
+//   res.header("Access-Control-Expose-Headers", "Set-Cookie");
+//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+//   res.header("Access-Control-Allow-Credentials", "true");
+//   next();
+// });
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
