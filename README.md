@@ -1,5 +1,7 @@
 ChatApp
 
+🌐 Live Demo: https://chatapp-5l5r.onrender.com/
+
 A real-time chat application built with Socket.io, Node.js, Express, MongoDB, Cloudinary, Zustand/Redux, React (Vite), and Tailwind CSS. Users can send messages, share images, and have real-time conversations with seamless WebSocket communication.
 
 Features
