@@ -31,7 +31,7 @@ app.use(cors({
   },
   credentials: true,  // Allow cookies and authentication headers
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['*']
 }));
 
 app.use("/api/auth", authRoutes);
