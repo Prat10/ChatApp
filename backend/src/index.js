@@ -25,7 +25,14 @@ app.use(cookieParser());
 //     credentials: true,
 //   })
 // );
-app.use(cors());
+app.use(cors({
+  origin: (origin, callback) => {
+    callback(null, origin || '*'); // Allow all origins dynamically
+  },
+  credentials: true,  // Allow cookies and authentication headers
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
