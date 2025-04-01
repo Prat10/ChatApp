@@ -35,17 +35,17 @@ app.use(
 //   preflightContinue: false,
 //   optionsSuccessStatus: 204
 // }));
-// app.use((req,res,next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept, Set-Cookie"
-//   );
-//   res.header("Access-Control-Expose-Headers", "Set-Cookie");
-//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-//   res.header("Access-Control-Allow-Credentials", "true");
-//   next();
-// });
+app.use((req,res,next) => {
+  res.header("Access-Control-Allow-Origin", "https://chat-app-three-pink.vercel.app");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Set-Cookie"
+  );
+  res.header("Access-Control-Expose-Headers", "Set-Cookie");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
